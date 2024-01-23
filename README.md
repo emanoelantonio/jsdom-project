@@ -1,9 +1,15 @@
-# JS-DOM - Projeto Final
+# Lista de Tarefas - Projeto Final
 
+Esta é uma aplicação de lista de tarefas (ToDo List) utilizando os conceitos abordados ao longo do módulo 4 de **JS-DOM** na plataforma da [AdaTech](https://ada.tech/) para o programa _Vem Ser Tech iFood_ do [Potência Tech](https://potenciatech.com.br/) em parceria com a [iFood](https://www.ifood.com.br/).
 
-Esta é uma aplicação de Listas de Tarefas (ToDo List), usando apenas a base da programação Front-end, **HTML**, **CSS** e **JAVASCRIPT**.
+## Tecnologias Utilizadas
 
-## Requisitos
+- HTML5
+- CSS3
+- Javascript
+- Boostrap
+
+## Requisitos e Funcionalidades
 
 Dentre as funcionalidades, espera-se que seja possível:
 
