@@ -51,8 +51,10 @@ function addTaskToDOM(task) {
           </button>
         </div>
       </div>
-      <span class="card-header">${task.category}</span>
-      <span class="card-time m-5">${task.time}</span>
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="card-header">${task.category}</span>
+        <span class="card-time">${task.time}</span>
+      </div>
     </div>
   `;
 
