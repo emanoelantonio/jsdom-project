@@ -7,7 +7,7 @@ Esta é uma aplicação de lista de tarefas (ToDo List) utilizando os conceitos 
 - HTML5
 - CSS3
 - Javascript
-- Boostrap
+- Bootstrap
 
 ## Requisitos e Funcionalidades
 
