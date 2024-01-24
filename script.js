@@ -35,62 +35,26 @@ function addTaskToDOM(task) {
   const card = document.createElement("div");
   card.className = "card mb-3";
 
-  const cardBody = document.createElement("div");
-  cardBody.className = "card-body";
-
-  const taskContent = document.createElement("div");
-  taskContent.className = "d-flex justify-content-between align-items-center";
-
-  const formCheck = document.createElement("div");
-  formCheck.className = "form-check";
-
-  const inputCheck = document.createElement("input");
-  inputCheck.className = "form-check-input";
-  inputCheck.type = "radio";
-  inputCheck.checked = true; 
-  inputCheck.name = "inputCheckTask";
-
-  const labelCheck = document.createElement("label");
-  labelCheck.className = "form-check-label fw-bold";
-  labelCheck.htmlFor = "inputCheckTask";
-  labelCheck.innerText = task.title; 
-
-  formCheck.appendChild(inputCheck);
-  formCheck.appendChild(labelCheck);
-
-  const buttonGroup = document.createElement("div");
-  buttonGroup.className = "gap-2";
-
-  const editButton = document.createElement("button");
-  editButton.type = "button";
-  editButton.className = "btn btn-primary";
-  editButton.innerHTML = '<i class="bi bi-pencil-square"></i>';
-
-  const deleteButton = document.createElement("button");
-  deleteButton.type = "button";
-  deleteButton.className = "btn btn-danger";
-  deleteButton.innerHTML = '<i class="bi bi-trash"></i>';
-
-  buttonGroup.appendChild(editButton);
-  buttonGroup.appendChild(deleteButton);
-
-  taskContent.appendChild(formCheck);
-  taskContent.appendChild(buttonGroup);
-
-  cardBody.appendChild(taskContent);
-  card.appendChild(cardBody);
-
-  const cardHeader = document.createElement("span");
-  cardHeader.className = "card-header";
-  cardHeader.innerText = task.category; 
-  
-
-  const cardTime = document.createElement("span");
-  cardTime.className = "card-time";
-  cardTime.innerText = task.time;
-  taskContent.appendChild(cardTime);
-
-  card.appendChild(cardHeader);
+  card.innerHTML = `
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" checked name="inputCheckTask" id="inputCheckTask">
+          <label class="form-check-label fw-bold" for="inputCheckTask">${task.title}</label>
+        </div>
+        <div class=" gap-2">
+          <button type="button" class="btn btn-primary">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+          <button type="button" class="btn btn-danger">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>
+      <span class="card-header">${task.category}</span>
+      <span class="card-time m-5">${task.time}</span>
+    </div>
+  `;
 
   tasksContainer.appendChild(card);
 }
