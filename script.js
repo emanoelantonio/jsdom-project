@@ -1,14 +1,5 @@
 document.addEventListener("DOMContentLoaded", displayAllTasks);
 
-// const deleteBtn = document.querySelectorAll(".btn-danger");
-// deleteBtn.forEach((button) => {
-//   button.addEventListener("click", function () {
-//     console.log("Clicked Delete Button");
-//     const taskId = button.closest(".card").getAttribute("data-task-id");
-//     deleteTaskById(taskId);
-//   });
-// });
-
 const saveButton = document.getElementById("saveButton");
 saveButton.addEventListener("click", function() {
   
@@ -61,13 +52,6 @@ function currentTime() {
   currentTimeEl.innerText = newDate;
 }
 
-// function getTaskById(id) {
-//   getById(id).then((task) => {
-
-//   })
-// }
-
-
 function addTaskToDOM(task) {
   const tasksContainer = document.getElementById("tasksContainer");
   const noTasksCard = document.getElementById("noTasksCard");
@@ -103,16 +87,23 @@ function addTaskToDOM(task) {
   tasksContainer.appendChild(card);
 
   card.setAttribute("data-task-id", task._id);
+  
+  const editButtons = document.querySelectorAll(".btn-edit");
+  editButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const taskId = button.closest(".card").getAttribute("data-task-id");
+      openEditModal(taskId)
+    })
+  })
+  
+  const deleteButton = card.querySelector(".btn-danger");
+  deleteButton.addEventListener("click", function() {
+    const taskId = card.getAttribute("data-task-id");
+    deleteTaskById(taskId);
+  });
 }
 
 
-const editButtons = document.querySelectorAll(".btn-edit");
-editButtons.forEach((button) => {
-  button.addEventListener("click", function () {
-    const taskId = button.closest(".card").getAttribute("data-task-id");
-    openEditModal(taskId)
-  })
-})
 
 let editingTaskId = null;
 
@@ -120,7 +111,7 @@ async function openEditModal(taskId) {
   editingTaskId = taskId;
 
   try {
-    const task = await getTaskById(taskId);
+    const task = await getById(taskId);
 
     const titleInput = document.getElementById("title");
     const categoryInput = document.getElementById("category");
@@ -137,22 +128,20 @@ async function openEditModal(taskId) {
   }
 }
 
-// async function deleteTaskById(taskId) {
-//   console.log("Deleting task with ID:", taskId);
-//   try {
-//     await deleteTask(taskId);
-    
-//     const taskCard = document.querySelector(`[data-task-id="${taskId}"]`);
-//     if (taskCard) {
-//       taskCard.remove();
-//     }
+async function deleteTaskById(taskId) {
+  try {
+    await deleteTask(taskId); 
+    const taskCard = document.querySelector(`[data-task-id="${taskId}"]`);
+    if (taskCard) {
+      taskCard.remove();
+    }
 
-//     const tasksContainer = document.getElementById("tasksContainer");
-//     const noTasksCard = document.getElementById("noTasksCard");
-//     if (tasksContainer.children.length === 0) {
-//       noTasksCard.style.display = "block";
-//     }
-//   } catch (error) {
-//     console.error("Erro ao excluir a tarefa", error);
-//   }
-// }
+    const tasksContainer = document.getElementById("tasksContainer");
+    const noTasksCard = document.getElementById("noTasksCard");
+    if (tasksContainer.children.length === 0) {
+      noTasksCard.style.display = "block";
+    }
+  } catch (error) {
+    console.error("Erro ao excluir a tarefa", error);
+  }
+}
