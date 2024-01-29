@@ -1,4 +1,4 @@
-const key = "150810bcf7784d75afa463abefc3ef51";
+const key = "2e6bcef9957a45cabcc4538acb4794ec";
 const apiUrl = `https://crudcrud.com/api/${key}/tasks`;
 
 async function findAllTasks() {
@@ -25,14 +25,34 @@ async function saveTask(task) {
   }
 }
 
+async function getById(id) {
+  try {
+    const response = await fetch(`${apiUrl}/${id}`);
+    return await response.json();
+} catch (error) {
+  throw error;
+}
+}
+
 async function updateTask(task, id) {
   try {
-    await fetch(`${apiUrl}/${id}`, {
+   const response = await fetch(`${apiUrl}/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(task)
+    })
+    return await response.json();
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function deleteTask(id){
+  try {
+    await fetch(`${apiUrl}/${id}`, {
+      method: "DELETE",
     })
   } catch (error) {
     throw error;

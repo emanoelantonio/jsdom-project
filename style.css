@@ -22,8 +22,16 @@ body {
   padding: 4px;
   padding-right: 20px;
   font-size: 30px;
+  margin-right: 4px;
   color: green;
   font-weight: bold;
+}
+
+.current-date {
+  margin-left: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: #322e46;
 }
 
 section {
@@ -31,8 +39,4 @@ section {
   padding: 8px;
   border: none;
   border-radius: 4px;
-}
-
-small {
-  font-weight: 400;
 }
