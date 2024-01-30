@@ -1,32 +1,39 @@
 document.addEventListener("DOMContentLoaded", displayAllTasks);
 
 const saveButton = document.getElementById("saveButton");
-saveButton.addEventListener("click", function() {
-  
+saveButton.addEventListener("click", function () {
+
   const titleInput = document.getElementById("title");
   const categoryInput = document.getElementById("category");
   const timeInput = document.getElementById("time");
-    
+
   const newTask = {
     title: titleInput.value.trim(),
     category: categoryInput.value.trim(),
     time: timeInput.value.trim()
   };
-  
+
   if (newTask.title && newTask.category && newTask.time) {
-    createTask(newTask);
-  }else{
+    if (editingTaskId) {
+      updateTask(newTask, editingTaskId)
+        .then(() => {
+
+          window.location.href = "./index.html";
+        })
+        .catch((error) => {
+          console.error("Erro ao atualizar a tarefa", error);
+        });
+    } else {
+      createTask(newTask)
+        .then(() => {
+          window.location.href = "./index.html";
+        })
+        .catch((error) => {
+          console.error("Erro ao adicionar a tarefa", error);
+        });
+    }
+  } else {
     alert("Por favor, preencha todos os campos antes de salvar.");
-  }
-  
-  if (editingTaskId) {
-    updateTask(newTask, editingTaskId)
-    .then(() => {
-      window.location.href = "./index.html";
-    })
-    .catch((error) => {
-      console.error("Erro ao atualizar a tarefa", error);
-    });
   }
 })
 
@@ -40,11 +47,11 @@ function createTask(task) {
     })
     .catch((error) => {
       console.error("Erro ao adicionar a tarefa", error);
-  })
+    })
 }
 
 function currentTime() {
-  const currentTimeEl = document.getElementById("current-time");  
+  const currentTimeEl = document.getElementById("current-time");
   const newDate = new Intl.DateTimeFormat('pt-BR', {
     dateStyle: 'medium',
     timeStyle: 'short',
@@ -87,7 +94,7 @@ function addTaskToDOM(task) {
   tasksContainer.appendChild(card);
 
   card.setAttribute("data-task-id", task._id);
-  
+
   const editButtons = document.querySelectorAll(".btn-edit");
   editButtons.forEach((button) => {
     button.addEventListener("click", function () {
@@ -95,15 +102,13 @@ function addTaskToDOM(task) {
       openEditModal(taskId)
     })
   })
-  
+
   const deleteButton = card.querySelector(".btn-danger");
-  deleteButton.addEventListener("click", function() {
+  deleteButton.addEventListener("click", function () {
     const taskId = card.getAttribute("data-task-id");
     deleteTaskById(taskId);
   });
 }
-
-
 
 let editingTaskId = null;
 
@@ -130,7 +135,7 @@ async function openEditModal(taskId) {
 
 async function deleteTaskById(taskId) {
   try {
-    await deleteTask(taskId); 
+    await deleteTask(taskId);
     const taskCard = document.querySelector(`[data-task-id="${taskId}"]`);
     if (taskCard) {
       taskCard.remove();

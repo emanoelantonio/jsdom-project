@@ -33,12 +33,33 @@ Você pode reportar algum problema na seção <a href="https://github.com/emanoe
 
 ### 🤝 Contribuindo - We can advanced together!
 
-## 🧠 Autor :
- <img style="border-radius: 50%;" src="https://avatars2.githubusercontent.com/u/60781248?s=460&u=43dbba3483d275c3d8964df24a8f5139f53dc282&v=4" width="100px;" alt="imagem de perfil do autor"/>
- <br />
- <sub>Emanoel Antonio 👨🏻‍💻</sub>
+## 🧠 Autores :
+ <img style="border-radius: 50%;" src="https://avatars2.githubusercontent.com/u/60781248?s=460&u=43dbba3483d275c3d8964df24a8f5139f53dc282&v=4" width="50px;" alt="imagem de perfil do autor"/></br><sub>Emanoel Antonio</sub></br>
+  ![Twitter Follow](https://img.shields.io/twitter/follow/DevEmanoel?style=social)</br>
+ <a href="https://www.linkedin.com/in/emanoel-antonio/"><img align="center" src="https://img.shields.io/static/v1?label=&message=Linkedin&color=3D008A&style=for-the-badge&logo=linkedin"/></a>
 
-" _Never Stor Learning!_ "
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/140974399?v=4" width="50px;" alt="imagem de perfil do autor"/>
+ </br>
+ Lucas Figueredo</br>
+ <a href="https://github.com/Luquina">
+ <img align="center" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+ </a>
+ </br>
 
- ![Twitter Follow](https://img.shields.io/twitter/follow/DevEmanoel?style=social)</br>
- <a href="https://www.linkedin.com/in/emanoel-antonio-silva/"><img align="center" src="https://img.shields.io/static/v1?label=&message=Linkedin&color=3D008A&style=for-the-badge&logo=linkedin"/></a>
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/78453305?v=4" width="50px;" alt="imagem de perfil do autor"/>
+ </br>
+Luiz Henrique</br>
+ <a href="https://github.com/lhnl007hm">
+ <img align="center" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+ </a>
+ </br>
+
+
+
+
+
+
+
+<!-- " _Never Stor Learning!_ "
+
+
